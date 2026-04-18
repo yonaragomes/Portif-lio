@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yonara Gomes | Portfólio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-top: #f7f2f7;
+      --bg-main: #fcfbfd;
+      --text-dark: #1f2745;
+      --text-soft: #5f657a;
+      --primary: #d64786;
+      --primary-strong: #c73b78;
+      --primary-soft: #f8d8e7;
+      --purple-soft: #c9c1f4;
+      --purple-medium: #a497f0;
+      --card-border: #eee7ef;
+      --white: #ffffff;
+      --shadow: 0 12px 30px rgba(125, 94, 130, 0.08);
+      --footer-1: #c74d87;
+      --footer-2: #7856b5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, var(--bg-top) 0 690px, var(--bg-main) 690px 100%);
+      color: var(--text-dark);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 26px 0 10px;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eadfe9;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .menu {
+      display: flex;
+      gap: 42px;
+      list-style: none;
+    }
+
+    .menu a {
+      color: var(--text-dark);
+      font-size: 1rem;
+      font-weight: 400;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .menu a.active,
+    .menu a:hover {
+      color: var(--primary);
+    }
+
+    .menu a.active::after,
+    .menu a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 42px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .hero {
+      padding: 70px 0 90px;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .hero small {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5rem);
+      line-height: 0.95;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+      display: block;
+    }
+
+    .hero-line {
+      width: 54px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--primary);
+      margin: 26px 0 22px;
+    }
+
+    .hero p {
+      max-width: 460px;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text-soft);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-width: 178px;
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: var(--white);
+      box-shadow: 0 10px 22px rgba(214, 71, 134, 0.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: #fff6fa;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      width: fit-content;
+      margin-left: auto;
+    }
+
+    .hero-photo {
+      width: 460px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .shape-top {
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: #cf8dac;
+      top: 18px;
+      right: -28px;
+      z-index: 1;
+    }
+
+    .shape-bottom {
+      position: absolute;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: #aa9dec;
+      left: 18px;
+      bottom: 0;
+      z-index: 3;
+      opacity: 0.9;
+    }
+
+    .shape-dots {
+      position: absolute;
+      right: -42px;
+      bottom: 20px;
+      width: 130px;
+      height: 100px;
+      background-image: radial-gradient(#e7b9cf 1.8px, transparent 1.8px);
+      background-size: 18px 18px;
+      z-index: 1;
+      opacity: 0.8;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-title .line {
+      width: 42px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--primary);
+      margin: 0 auto;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card,
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card {
+      min-height: 150px;
+      padding: 24px 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .skill-icon {
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    .django { color: #0a6c44; }
+    .react { color: #1db5ff; }
+    .node { color: #6eb44f; }
+    .html { color: #f16529; }
+    .css { color: #2d84df; }
+    .js { color: #e8bf10; }
+    .git { color: #f0622f; }
+
+    .skill-card span:last-child {
+      font-size: 1rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      padding: 30px 24px;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-icon {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.3rem;
+      margin-bottom: 22px;
+    }
+
+    .icon-pink {
+      background: #f7dce8;
+      color: var(--primary);
+    }
+
+    .icon-lilac {
+      background: #dedcf6;
+      color: #404b8c;
+    }
+
+    .icon-beige {
+      background: #f4e4dc;
+      color: #a96134;
+    }
+
+    .project-card h3 {
+      font-size: 1.45rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 1rem;
+      flex: 1;
+    }
+
+    .project-card a {
+      margin-top: 18px;
+      color: var(--primary);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 6px 0;
+      border-right: 1px solid #e9e1ea;
+    }
+
+    .contact-card:last-child {
+      border-right: none;
+    }
+
+    .contact-icon {
+      min-width: 76px;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .contact-email {
+      background: #f8dde8;
+      color: var(--primary);
+    }
+
+    .contact-insta {
+      background: #f3d3eb;
+      color: #d44fa0;
+    }
+
+    .contact-linkedin {
+      background: #d8e8f8;
+      color: #1778b9;
+    }
+
+    .contact-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .contact-card a,
+    .contact-card p {
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      word-break: break-word;
+    }
+
+    footer {
+      margin-top: 32px;
+      background: linear-gradient(90deg, var(--footer-1), var(--footer-2));
+      color: var(--white);
+      text-align: center;
+      padding: 22px 12px;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    footer i {
+      margin-left: 8px;
+    }
+
+    @media (max-width: 1080px) {
+      .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .projects-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        border-right: none;
+        border-bottom: 1px solid #e9e1ea;
+        padding-bottom: 22px;
+      }
+
+      .contact-card:last-child {
+        border-bottom: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      .hero p {
+        margin: 0 auto;
+      }
+
+      .hero-line {
+        margin: 26px auto 22px;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-photo-wrap {
+        margin: 20px auto 0;
+      }
+
+      .menu {
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .navbar {
+        flex-direction: column;
+      }
+
+      .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px 22px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-photo {
+        width: 320px;
+      }
+
+      .shape-top {
+        width: 130px;
+        height: 130px;
+        right: -10px;
+      }
+
+      .shape-bottom {
+        width: 70px;
+        height: 70px;
+      }
+
+      .shape-dots {
+        width: 92px;
+        right: -10px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 2.7rem;
+      }
+
+      .hero-photo {
+        width: 270px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">Yonara Gomes</div>
+        <ul class="menu">
+          <li><a class="active" href="#sobre">Sobre</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <section class="hero" id="sobre">
+        <div class="hero-content">
+          <small>Olá, eu sou a</small>
+          <h1><span>Yonara</span> Gomes</h1>
+          <div class="hero-line"></div>
+          <p>
+            Estudante de Informática no IFRN Pau dos Ferros.
+            Apaixonada por tecnologia e desenvolvimento de soluções que fazem a diferença.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#projetos">Ver Projetos <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="btn btn-secondary" href="#contato"><i class="fa-regular fa-envelope"></i> Entrar em contato</a>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrap">
+          <div class="shape-top"></div>
+          <div class="hero-photo">
+            <img src="/IMG_20251129_100909_430 (1).jpg" alt="Foto de Yonara Paiva">
+          </div>
+          <div class="shape-bottom"></div>
+          <div class="shape-dots"></div>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <section id="habilidades">
+      <div class="container">
+        <div class="section-title">
+          <h2>Habilidades</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="skill-icon django"><i class="fa-brands fa-python"></i></div>
+            <span>Django</span>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon react"><i class="fa-brands fa-react"></i></div>
+            <span>React</span>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon node"><i class="fa-brands fa-node-js"></i></div>
+            <span>Node.js</span>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon html"><i class="fa-brands fa-html5"></i></div>
+            <span>HTML</span>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon css"><i class="fa-brands fa-css3-alt"></i></div>
+            <span>CSS</span>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon js"><i class="fa-brands fa-js"></i></div>
+            <span>JavaScript</span>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon git"><i class="fa-brands fa-git-alt"></i></div>
+            <span>Git</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projetos</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-icon icon-pink">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <h3>CHRONIMES</h3>
+            <p>
+              Um site para leitores acompanharem suas leituras de mangás.
+            </p>
+            <a href="https://grazysss.github.io/CHRONIMES/" target="_blank">Ver projeto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon icon-lilac">
+              <i class="fa-solid fa-gear"></i>
+            </div>
+            <h3>Automação de Tarefas</h3>
+            <p>
+              Scripts em Python para automatizar tarefas do dia a dia.
+            </p>
+            <a href="https://github.com/yonaragomes/automaticao_tarefas.git" target="_blank">Ver repositório <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon icon-beige">
+              <i class="fa-solid fa-link"></i>
+            </div>
+            <h3>DevLinks</h3>
+            <p>
+              Página de links para desenvolvedores com vários recursos úteis.
+            </p>
+            <a href="https://devlinks-github.maykbrito.dev" target="_blank">Ver projeto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contato</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <div class="contact-icon contact-email">
+              <i class="fa-regular fa-envelope"></i>
+            </div>
+            <div>
+              <h3>E-mail</h3>
+              <a href="mailto:yonara.paiva1@gmail.com">yonara.paiva1@gmail.com</a>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <div class="contact-icon contact-insta">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div>
+              <h3>Instagram</h3>
+              <a href="https://instagram.com/_yonaragomes" target="_blank">@_yonaragomes</a>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <div class="contact-icon contact-linkedin">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+            <div>
+              <h3>LinkedIn</h3>
+              <p></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Yonara Gomes <i class="fa-solid fa-heart"></i></p>
+  </footer>
+</body>
+</html>
